@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { General } from "./components/General";
 import { Education } from "./components/Education";
+import { Practical } from "./components/Practical";
 
 import "./App.css";
 
@@ -9,6 +10,8 @@ function App() {
 		<>
 			<h1>CV Application</h1>
 			<General />
+			<Education />
+			<Practical />
 		</>
 	);
 }
