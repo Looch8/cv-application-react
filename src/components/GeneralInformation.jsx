@@ -1,13 +1,12 @@
 import { useState } from "react";
 
 function GeneralInformation({ name, email, phoneNumber }) {
-	const [value, setValue] = useState("");
-
 	return (
 		<section className="general-display-section">
-			<div>Name: {name}</div>
-			<div>Email: {email}</div>
-			<div>Phone Number: {phoneNumber}</div>
+			<h2>General Information</h2>
+			<p>Name: {name}</p>
+			<p>Email: {email}</p>
+			<p>Phone Number: {phoneNumber}</p>
 		</section>
 	);
 }
