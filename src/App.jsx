@@ -1,14 +1,61 @@
+import { useState } from "react";
 import "./App.css";
 import GeneralInformation from "./components/GeneralInformation";
 
 function App() {
+	const [name, setName] = useState("");
+	const [email, setEmail] = useState("");
+	const [phoneNumber, setPhoneNumber] = useState("");
+	const [submitted, setSubmitted] = useState(false);
+
+	function handleNameChange(e) {
+		setName(e.target.value);
+	}
+
+	function handleEmailChange(e) {
+		setEmail(e.target.value);
+	}
+
+	function handlePhoneChange(e) {
+		setPhoneNumber(e.target.value);
+	}
+
+	function handleSubmit(e) {
+		e.preventDefault(e);
+		setSubmitted(true);
+	}
+
 	return (
 		<div>
-			<GeneralInformation
-				name="Luke"
-				email={"Lukewheldale@mail"}
-				phoneNumber="04572949"
-			/>
+			<h2>General Information</h2>
+			<form onSubmit={handleSubmit}>
+				<input
+					type="text"
+					placeholder="Name"
+					value={name}
+					onChange={handleNameChange}
+				></input>
+				<input
+					type="text"
+					placeholder="Email"
+					value={email}
+					onChange={handleEmailChange}
+				></input>
+				<input
+					type="tel"
+					placeholder="Phone Number"
+					value={phoneNumber}
+					onChange={handlePhoneChange}
+				></input>
+				<button type="submit">Submit</button>
+			</form>
+			{submitted && (
+				<GeneralInformation
+					name={name}
+					email={email}
+					phoneNumber={phoneNumber}
+				/>
+			)}
 		</div>
 	);
 }
